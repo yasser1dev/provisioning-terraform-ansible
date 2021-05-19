@@ -1,0 +1,26 @@
+---
+# tasks file for ssl-configuration
+- name: install openssl
+  apt: name=openssl state=present
+- name: create cert directory
+  file: path={{certification_directory}} state=directory mode=0775
+- name: generate private key
+  openssl_privatekey:
+          path: "{{private_key_path}}"
+          size: 4096
+          type: RSA
+- name: generate CSR
+  openssl_csr:
+          path: "{{csr_path}}"
+          privatekey_path: "{{private_key_path}}"
+          country_name: MA
+          organization_name: test
+          common_name: "{{ip_address}}"
+          subject_alt_name: "IP:{{ip_address}}"
+- name: generate self signed certification
+  openssl_certificate:
+          csr_path: "{{csr_path}}"
+          path: "{{signed_crt}}"
+          privatekey_path: "{{private_key_path}}"
+          provider: selfsigned
+

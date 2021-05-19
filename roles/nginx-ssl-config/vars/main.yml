@@ -1,0 +1,6 @@
+---
+# vars file for nginx-ssl-config
+certification_path: /home/ubuntu/certification
+ssl_path: /etc/ssl
+website_path: /var/www
+nginx_conf_path: /etc/nginx/sites-enabled

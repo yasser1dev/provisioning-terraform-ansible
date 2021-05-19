@@ -1,0 +1,7 @@
+- hosts: server1
+  become: yes 
+  roles:
+      - nginx     
+      - ssl-certificate-generation
+      - nginx-ssl-config
+
