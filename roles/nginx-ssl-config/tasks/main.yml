@@ -4,11 +4,11 @@
   file: path=/var/www/web-site1/ state=directory mode=0775
 - name: copy website index 
   copy : 
-    src: "~/static_website_files/index.html"
+    src: "{{static_website_files}}/index.html"
     dest: "/var/www/web-site1/"
 - name: copy website conf file
   copy : 
-    src: "~/static_website_files/web-site1"
+    src: "{{static_website_files}}/web-site1"
     dest: "/etc/nginx/sites-enabled/"
 - name: restart nginx server
   shell: "sudo service nginx restart"

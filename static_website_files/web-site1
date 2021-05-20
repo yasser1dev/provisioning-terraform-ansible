@@ -16,7 +16,7 @@ server {
 server {
     listen 81;
     listen [::]:81;
-    server_name ec2-3-143-224-77.us-east-2.compute.amazonaws.com
+    server_name ec2-18-222-65-52.us-east-2.compute.amazonaws.com
     root /var/www/web-site1;
     index index.html;
     return 302 https://$server_name$request_uri;

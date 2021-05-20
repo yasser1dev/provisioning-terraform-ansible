@@ -4,3 +4,4 @@ certification_path: /home/ubuntu/certification
 ssl_path: /etc/ssl
 website_path: /var/www
 nginx_conf_path: /etc/nginx/sites-enabled
+static_website_files : ~/self-provisioning/static_website_files
