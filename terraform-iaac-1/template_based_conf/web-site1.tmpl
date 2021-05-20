@@ -1,0 +1,23 @@
+server {
+       listen 443 ssl;
+     
+       ssl_certificate /etc/ssl/certs/self-signed.crt;
+       ssl_certificate_key /etc/ssl/private/private.key;
+
+       ssl_protocols TLSv1.2 TLSv1.1 TLSv1;
+
+       root /var/www/web-site1;
+       index index.html;
+
+       location / {
+               try_files $uri $uri/ =404;
+       }
+}
+server {
+    listen 81;
+    listen [::]:81;
+    server_name ${public_dns}
+    root /var/www/web-site1;
+    index index.html;
+    return 302 https://$server_name$request_uri;
+}
